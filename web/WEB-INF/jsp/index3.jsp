@@ -1,8 +1,7 @@
-<%@ page language="java" import="com.du.ConnDb,java.util.*,java.lang.*" contentType="text/html; charset=UTF-8"
+<%@ page language="java" import="com.du.ConnDb,java.util.*" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%
 ArrayList<String[]> list = ConnDb.index_3();
-System.out.println(list.toString());
 %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -28,20 +27,15 @@ System.out.println(list.toString());
         </div>
         <div class="container">
             <div class="title">商品类别交易额对比</div>
-            <div class="show" style="width: 100%;height: 1000px">
+            <div class="show">
                 <div class='chart-type'>饼图</div>
-                <div id="main" style="width: 600px;height: 500px"></div>
+                <div id="main"></div>
             </div>
         </div>
     </div>
 <script>
 //基于准备好的dom，初始化echarts实例
-console.log("this is ",document);
-console.log("this is ",document.getElementById('main'));
-console.log("this is ",echarts);
 var myChart = echarts.init(document.getElementById('main'));
-console.log("this is ",myChart);
-// console.log("this is ",ConnDb.index_3());
 // 指定图表的配置项和数据
 var x = []
 var y = []
@@ -53,8 +47,6 @@ var y = []
 		<%
 	}
 %>
-console.log("this is x ",x);
-console.log("this is y ",y);
 option = {
     color: ['#3398DB'],
     tooltip : {
@@ -94,8 +86,6 @@ option = {
 };
 // 使用刚指定的配置项和数据显示图表。
 myChart.setOption(option);
-console.log("option.xAxis",option.xAxis);
-console.log("option.yAxis",option.yAxis);
 </script>
 </body>
 </html>

@@ -29,7 +29,7 @@ ArrayList<String[]> list = ConnDb.index_4();
             <div class="title">各省份的总成交量对比</div>
             <div class="show">
                 <div class='chart-type'>地图</div>
-                <div id="main" style="width: 600px;height: 500px"></div>
+                <div id="main"></div>
             </div>
         </div>
     </div>

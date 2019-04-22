@@ -28,21 +28,15 @@ ArrayList<String[]> list = ConnDb.index_2();
         </div>
         <div class="container">
             <div class="title">男女买家各个年龄段交易对比</div>
-            <div class="show" style="width: 100%;height: 1000px">
+            <div class="show">
                 <div class='chart-type'>散点图</div>
-                <div id="main" style="width: 600px;height: 500px"></div>
+                <div id="main"></div>
             </div>
         </div>
     </div>
 <script>
 //基于准备好的dom，初始化echarts实例
-console.log("this is ",document);
-console.log("this is ",document.getElementById('main'));
-console.log("this is ",echarts);
 var myChart = echarts.init(document.getElementById('main'));
-
-console.log("this is ",myChart);
-// console.log("this is ",ConnDb.index_3());
 // 指定图表的配置项和数据
 var data = [];
 data[0] = [];
@@ -60,7 +54,6 @@ data[1] = [];
 		}
 	}
 %>
-console.log("this is data",data[0],data[1]);
 option = {
     backgroundColor: new echarts.graphic.RadialGradient(0.3, 0.3, 0.8, [{
         offset: 0,
@@ -156,8 +149,6 @@ option = {
 
 // 使用刚指定的配置项和数据显示图表。
 myChart.setOption(option);
-console.info(option.series[0].data);
-console.info(option.series[1].data);
 </script>
 </body>
 </html>

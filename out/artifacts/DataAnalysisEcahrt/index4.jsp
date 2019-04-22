@@ -1,4 +1,4 @@
-<%@ page language="java" import="com.du.ConnDb,java.util.*" contentType="text/html; charset=UTF-8"
+<%@ page language="java" import="dbtaobao.ConnDb,java.util.*" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%
 ArrayList<String[]> list = ConnDb.index_4();
@@ -18,7 +18,7 @@ ArrayList<String[]> list = ConnDb.index_4();
     <div class="content">
         <div class="nav">
             <ul>
-                <li><a href="../index.jsp">所有买家各消费行为对比</a></li>
+                <li><a href="./index.jsp">所有买家各消费行为对比</a></li>
                 <li><a href="./index1.jsp">男女买家交易对比</a></li>
                 <li><a href="./index2.jsp">男女买家各个年龄段交易对比</a></li>
                 <li><a href="./index3.jsp">商品类别交易额对比</a></li>
@@ -29,7 +29,7 @@ ArrayList<String[]> list = ConnDb.index_4();
             <div class="title">各省份的总成交量对比</div>
             <div class="show">
                 <div class='chart-type'>地图</div>
-                <div id="main" style="width: 600px;height: 500px"></div>
+                <div id="main"></div>
             </div>
         </div>
     </div>

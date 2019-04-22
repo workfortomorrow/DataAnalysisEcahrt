@@ -1,14 +1,11 @@
-
-<%@ page language="java" import="java.util.*"%>
-<%@ page language="java" import="com.du.ConnDb" %>
-<%@ page import = "java.util.*"%>
+<%@ page language="java" import="dbtaobao.ConnDb,java.util.*" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <%
-    ArrayList<String[]> list = ConnDb.index_1();
-%>
+ArrayList<String[]> list = ConnDb.index();
+%>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>ECharts 可视化分析淘宝双11</title>
 <link href="./css/style.css" type='text/css' rel="stylesheet"/>
@@ -21,35 +18,30 @@
     <div class="content">
         <div class="nav">
             <ul>
-                <li><a href="../index.jsp">所有买家各消费行为对比</a></li>
-                <li class="current"><a href="#">男女买家交易对比</a></li>
-                <li><a href="index2.jsp">男女买家各个年龄段交易对比</a></li>
-                <li><a href="index3.jsp">商品类别交易额对比</a></li>
-                <li><a href="index4.jsp">各省份的总成交量对比</a></li>
+                <li class="current"><a href="#">所有买家各消费行为对比</a></li>
+                <li><a href="./index1.jsp">男女买家交易对比</a></li>
+                <li><a href="./index2.jsp">男女买家各个年龄段交易对比</a></li>
+                <li><a href="./index3.jsp">商品类别交易额对比</a></li>
+                <li><a href="./index4.jsp">各省份的总成交量对比</a></li>
             </ul>
         </div>
         <div class="container">
-            <div class="title">男女买家交易对比</div>
-            <div class="show" style="width: 100%;height: 1000px">
+            <div class="title">所有买家各消费行为对比</div>
+            <div class="show">
                 <div class='chart-type'>饼图</div>
-                <div id="main" style="width: 600px;height: 500px"></div>
+                <div id="main"></div>
             </div>
         </div>
     </div>
 <script>
 //基于准备好的dom，初始化echarts实例
-console.log("this is ",document);
-console.log("this is ",document.getElementById('main'));
-console.log("this is ",echarts);
 var myChart = echarts.init(document.getElementById('main'));
-console.log("this is ",myChart);
-// console.log("this is ",ConnDb.index_3());
 // 指定图表的配置项和数据
 option = {
          backgroundColor: '#2c343c',
 
          title: {
-             text: '男女买家交易对比',
+             text: '所有买家消费行为比例图',
              left: 'center',
              top: 20,
              textStyle: {
@@ -77,9 +69,10 @@ option = {
                  radius : '55%',
                  center: ['50%', '50%'],
                  data:[
-                	 {value:<%=list.get(0)[1]%>, name:'女性'},
-                     {value:<%=list.get(1)[1]%>, name:'男性'},
-                     {value:<%=list.get(2)[1]%>, name:'未知'},
+                	 {value:<%=list.get(0)[1]%>, name:'特别关注'},
+                     {value:<%=list.get(1)[1]%>, name:'购买'},
+                     {value:<%=list.get(2)[1]%>, name:'添加购物车'},
+                     {value:<%=list.get(3)[1]%>, name:'点击'},
                  ].sort(function (a, b) { return a.value - b.value}),
                  roseType: 'angle',
                  label: {

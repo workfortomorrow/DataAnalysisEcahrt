@@ -1,19 +1,23 @@
-package dbtaobao;
+package com.du;
+
 import java.sql.*;
 import java.util.ArrayList;
- 
-public class connDb {
+
+public class ConnDb {
     private static Connection con = null;
     private static Statement stmt = null;
     private static ResultSet rs = null;
- 
+
+    public ConnDb(){
+        super();
+    }
     //连接数据库方法
     public static void startConn(){
         try{
             Class.forName("com.mysql.jdbc.Driver");
             //连接数据库中间件
             try{
-                con = DriverManager.getConnection("jdbc:MySQL://192.168.13.142:3306/dbtaobao","root","root");
+                con = DriverManager.getConnection("jdbc:MySQL://192.168.126.130:3306/dbtaobao","root","root");
             }catch(SQLException e){
                 e.printStackTrace();
             }
